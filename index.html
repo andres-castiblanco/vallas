@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/ZI_Cal_15PV_3.js"></script>
+        <script src="data/ZI_Med_15PV_4.js"></script>
+        <script src="data/ZI_Bog_15PV_5.js"></script>
+        <script src="data/Bog_Med_Cal_SF_2018_6.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[2.476056313632141,-78.91054022746025],[6.9122115967704705,-71.70363014953784]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_GoogleTraffic_0');
+        map.getPane('pane_GoogleTraffic_0').style.zIndex = 400;
+        var layer_GoogleTraffic_0 = L.tileLayer('https://mt1.google.com/vt?lyrs=h@159000000,traffic|seconds_into_week:-1&style=3&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleTraffic_0',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 18
+        });
+        layer_GoogleTraffic_0;
+        map.createPane('pane_GoogleRoads_1');
+        map.getPane('pane_GoogleRoads_1').style.zIndex = 401;
+        var layer_GoogleRoads_1 = L.tileLayer('https://mt1.google.com/vt/lyrs=h&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleRoads_1',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 18
+        });
+        layer_GoogleRoads_1;
+        map.createPane('pane_CARTOPositron_2');
+        map.getPane('pane_CARTOPositron_2').style.zIndex = 402;
+        var layer_CARTOPositron_2 = L.tileLayer('https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+            pane: 'pane_CARTOPositron_2',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 18
+        });
+        layer_CARTOPositron_2;
+        map.addLayer(layer_CARTOPositron_2);
+        function pop_ZI_Cal_15PV_3(feature, layer) {
+        }
+
+        function style_ZI_Cal_15PV_3_0() {
+            return {
+                pane: 'pane_ZI_Cal_15PV_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.501)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,127,0,0.501)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ZI_Cal_15PV_3');
+        map.getPane('pane_ZI_Cal_15PV_3').style.zIndex = 403;
+        map.getPane('pane_ZI_Cal_15PV_3').style['mix-blend-mode'] = 'normal';
+        var layer_ZI_Cal_15PV_3 = new L.geoJson(json_ZI_Cal_15PV_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ZI_Cal_15PV_3',
+            layerName: 'layer_ZI_Cal_15PV_3',
+            pane: 'pane_ZI_Cal_15PV_3',
+            onEachFeature: pop_ZI_Cal_15PV_3,
+            style: style_ZI_Cal_15PV_3_0,
+        });
+        bounds_group.addLayer(layer_ZI_Cal_15PV_3);
+        map.addLayer(layer_ZI_Cal_15PV_3);
+        function pop_ZI_Med_15PV_4(feature, layer) {
+        }
+
+        function style_ZI_Med_15PV_4_0() {
+            return {
+                pane: 'pane_ZI_Med_15PV_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.501)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,127,0,0.501)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ZI_Med_15PV_4');
+        map.getPane('pane_ZI_Med_15PV_4').style.zIndex = 404;
+        map.getPane('pane_ZI_Med_15PV_4').style['mix-blend-mode'] = 'normal';
+        var layer_ZI_Med_15PV_4 = new L.geoJson(json_ZI_Med_15PV_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ZI_Med_15PV_4',
+            layerName: 'layer_ZI_Med_15PV_4',
+            pane: 'pane_ZI_Med_15PV_4',
+            onEachFeature: pop_ZI_Med_15PV_4,
+            style: style_ZI_Med_15PV_4_0,
+        });
+        bounds_group.addLayer(layer_ZI_Med_15PV_4);
+        map.addLayer(layer_ZI_Med_15PV_4);
+        function pop_ZI_Bog_15PV_5(feature, layer) {
+        }
+
+        function style_ZI_Bog_15PV_5_0() {
+            return {
+                pane: 'pane_ZI_Bog_15PV_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.501)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,127,0,0.501)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ZI_Bog_15PV_5');
+        map.getPane('pane_ZI_Bog_15PV_5').style.zIndex = 405;
+        map.getPane('pane_ZI_Bog_15PV_5').style['mix-blend-mode'] = 'normal';
+        var layer_ZI_Bog_15PV_5 = new L.geoJson(json_ZI_Bog_15PV_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ZI_Bog_15PV_5',
+            layerName: 'layer_ZI_Bog_15PV_5',
+            pane: 'pane_ZI_Bog_15PV_5',
+            onEachFeature: pop_ZI_Bog_15PV_5,
+            style: style_ZI_Bog_15PV_5_0,
+        });
+        bounds_group.addLayer(layer_ZI_Bog_15PV_5);
+        map.addLayer(layer_ZI_Bog_15PV_5);
+        function pop_Bog_Med_Cal_SF_2018_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">DEPARTAMEN</th>\
+                        <td>' + (feature.properties['DEPARTAMEN'] !== null ? autolinker.link(feature.properties['DEPARTAMEN'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">MUNICIPIO</th>\
+                        <td>' + (feature.properties['MUNICIPIO'] !== null ? autolinker.link(feature.properties['MUNICIPIO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">NOMBRE PUE</th>\
+                        <td>' + (feature.properties['NOMBRE PUE'] !== null ? autolinker.link(feature.properties['NOMBRE PUE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">CodComuna</th>\
+                        <td>' + (feature.properties['CodComuna'] !== null ? autolinker.link(feature.properties['CodComuna'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre Com</th>\
+                        <td>' + (feature.properties['Nombre Com'] !== null ? autolinker.link(feature.properties['Nombre Com'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? autolinker.link(feature.properties['Direccion'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Bog_Med_Cal_SF_2018_VOTOS</th>\
+                        <td>' + (feature.properties['Bog_Med_Cal_SF_2018_VOTOS'] !== null ? autolinker.link(feature.properties['Bog_Med_Cal_SF_2018_VOTOS'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Bog_Med_Cal_SF_2018_6_0(feature) {
+            if (feature.properties['Bog_Med_Cal_SF_2018_VOTOS'] >= 3.000000 && feature.properties['Bog_Med_Cal_SF_2018_VOTOS'] <= 2590.500000 ) {
+                return {
+                pane: 'pane_Bog_Med_Cal_SF_2018_6',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Bog_Med_Cal_SF_2018_VOTOS'] >= 2590.500000 && feature.properties['Bog_Med_Cal_SF_2018_VOTOS'] <= 5178.000000 ) {
+                return {
+                pane: 'pane_Bog_Med_Cal_SF_2018_6',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,201,129,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Bog_Med_Cal_SF_2018_VOTOS'] >= 5178.000000 && feature.properties['Bog_Med_Cal_SF_2018_VOTOS'] <= 7765.500000 ) {
+                return {
+                pane: 'pane_Bog_Med_Cal_SF_2018_6',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(196,230,135,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Bog_Med_Cal_SF_2018_VOTOS'] >= 7765.500000 && feature.properties['Bog_Med_Cal_SF_2018_VOTOS'] <= 10353.000000 ) {
+                return {
+                pane: 'pane_Bog_Med_Cal_SF_2018_6',
+                radius: 10.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_Bog_Med_Cal_SF_2018_6');
+        map.getPane('pane_Bog_Med_Cal_SF_2018_6').style.zIndex = 406;
+        map.getPane('pane_Bog_Med_Cal_SF_2018_6').style['mix-blend-mode'] = 'normal';
+        var layer_Bog_Med_Cal_SF_2018_6 = new L.geoJson(json_Bog_Med_Cal_SF_2018_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Bog_Med_Cal_SF_2018_6',
+            layerName: 'layer_Bog_Med_Cal_SF_2018_6',
+            pane: 'pane_Bog_Med_Cal_SF_2018_6',
+            onEachFeature: pop_Bog_Med_Cal_SF_2018_6,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Bog_Med_Cal_SF_2018_6_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Bog_Med_Cal_SF_2018_6);
+        map.addLayer(layer_Bog_Med_Cal_SF_2018_6);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'Bog_Med_Cal_SF_2018<br /><table><tr><td style="text-align: center;"><img src="legend/Bog_Med_Cal_SF_2018_6_325910.png" /></td><td>3 - 2591</td></tr><tr><td style="text-align: center;"><img src="legend/Bog_Med_Cal_SF_2018_6_259151781.png" /></td><td>2591 - 5178</td></tr><tr><td style="text-align: center;"><img src="legend/Bog_Med_Cal_SF_2018_6_517877662.png" /></td><td>5178 - 7766</td></tr><tr><td style="text-align: center;"><img src="legend/Bog_Med_Cal_SF_2018_6_7766103533.png" /></td><td>7766 - 10353</td></tr></table>': layer_Bog_Med_Cal_SF_2018_6,'<img src="legend/ZI_Bog_15PV_5.png" /> ZI_Bog_15PV': layer_ZI_Bog_15PV_5,'<img src="legend/ZI_Med_15PV_4.png" /> ZI_Med_15PV': layer_ZI_Med_15PV_4,'<img src="legend/ZI_Cal_15PV_3.png" /> ZI_Cal_15PV': layer_ZI_Cal_15PV_3,"CARTO Positron": layer_CARTOPositron_2,"Google Roads": layer_GoogleRoads_1,"Google Traffic": layer_GoogleTraffic_0,}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
